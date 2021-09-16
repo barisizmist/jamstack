@@ -2,7 +2,7 @@
   <v-row>
     <v-col class="text-center">
       <div v-for="(p, i) in posts" :key="i">
-        <div class="text-center">{{ p.title }}</div>
+        <div>{{ p.title }}</div>
         {{ p.content }}
       </div>
     </v-col>
