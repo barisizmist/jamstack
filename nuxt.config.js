@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  // target: 'static',
+  target: 'static',
   head: {
     titleTemplate: '%s - jamstack-nuxt',
     title: 'jamstack-nuxt',
