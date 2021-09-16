@@ -15,15 +15,20 @@ export default {
       posts: [],
     }
   },
-  created() {
-    this.getPosts()
+  // created() {
+  //   this.getPosts()
+  // },
+  async fetch() {
+    this.posts = await fetch('http://localhost:1337/posts').then((res) =>
+      res.json()
+    )
   },
-  methods: {
-    getPosts() {
-      fetch('http://localhost:1337/posts')
-        .then((res) => res.json())
-        .then((data) => (this.posts = data))
-    },
-  },
+  // methods: {
+  //   getPosts() {
+  //     fetch('http://localhost:1337/posts')
+  //       .then((res) => res.json())
+  //       .then((data) => (this.posts = data))
+  //   },
+  // },
 }
 </script>
