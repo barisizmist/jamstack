@@ -1,19 +1,29 @@
 <template>
   <v-row>
     <v-col class="text-center">
-      <img
-        src="/v.png"
-        alt="Vuetify.js"
-        class="mb-5"
-      >
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
+      <div v-for="(p, i) in posts" :key="i">
+        <div>{{ p.title }}</div>
+        {{ p.content }}
+      </div>
     </v-col>
   </v-row>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      posts: [],
+    }
+  },
+  created() {
+    this.getPosts()
+  },
+  methods: {
+    getPosts() {
+      fetch('http://localhost:1337/posts')
+        .then((res) => res.json())
+        .then((data) => (this.posts = data))
+    },
+  },
+}
+</script>
