@@ -12,9 +12,9 @@
 <script>
 export default {
   async asyncData() {
-    const posts = await fetch('http://localhost:1337/posts').then((res) =>
-      res.json()
-    )
+    const posts = await fetch(
+      'https://jamstack-backend.herokuapp.com/posts'
+    ).then((res) => res.json())
     return { posts }
   },
 }

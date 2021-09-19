@@ -8,9 +8,9 @@
 <script>
 export default {
   async asyncData({ params }) {
-    const post = await fetch(`http://localhost:1337/posts/${params.id}`).then(
-      (res) => res.json()
-    )
+    const post = await fetch(
+      `https://jamstack-backend.herokuapp.com/posts/${params.id}`
+    ).then((res) => res.json())
     return { post }
   },
 }
