@@ -13,7 +13,7 @@
 export default {
   async asyncData() {
     const posts = await fetch(
-      'https://jamstack-backend.herokuapp.com/posts'
+      'https://jsonplaceholder.typicode.com/posts'
     ).then((res) => res.json())
     const count = posts.length
     return { posts, count }

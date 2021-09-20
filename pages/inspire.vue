@@ -9,7 +9,7 @@
 export default {
   async asyncData({ $axios }) {
     const posts = await $axios.$get(
-      `https://jamstack-backend.herokuapp.com/posts`
+      `https://jsonplaceholder.typicode.com/posts`
     )
     return { posts }
   },

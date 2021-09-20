@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{ post.title }}</h2>
-    <div>{{ post.content }}</div>
+    <div>{{ post.body }}</div>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 export default {
   async asyncData({ params }) {
     const post = await fetch(
-      `https://jamstack-backend.herokuapp.com/posts/${params.id}`
+      `https://jsonplaceholder.typicode.com/posts/${params.id}`
     ).then((res) => res.json())
     return { post }
   },
