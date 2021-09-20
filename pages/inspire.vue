@@ -1,34 +1,17 @@
 <template>
   <v-row>
     <v-col class="text-center">
-      <div v-for="(p, i) in posts" :key="i">
-        <div>{{ p.title }}</div>
-        {{ p.content }}
-      </div>
+      <h1>{{ posts.length }}</h1>
     </v-col>
   </v-row>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      posts: [],
-    }
-  },
-  // created() {
-  //   this.getPosts()
-  // },
-  async fetch() {
-    this.posts = await fetch('http://localhost:1337/posts').then((res) =>
-      res.json()
+  async asyncData({ $axios }) {
+    const posts = await $axios.$get(
+      `https://jamstack-backend.herokuapp.com/posts`
     )
+    return { posts }
   },
-  // methods: {
-  //   getPosts() {
-  //     fetch('http://localhost:1337/posts')
-  //       .then((res) => res.json())
-  //       .then((data) => (this.posts = data))
-  //   },
-  // },
 }
 </script>

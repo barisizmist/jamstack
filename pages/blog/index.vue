@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Posts</h1>
+    <h1>Posts {{ count }}</h1>
     <ul>
       <li v-for="post in posts" :key="post.id">
         <NuxtLink :to="`blog/${post.id}`">{{ post.title }}</NuxtLink>
@@ -15,7 +15,13 @@ export default {
     const posts = await fetch(
       'https://jamstack-backend.herokuapp.com/posts'
     ).then((res) => res.json())
-    return { posts }
+    const count = posts.length
+    return { posts, count }
+  },
+  data() {
+    return {
+      count: 0,
+    }
   },
 }
 </script>
