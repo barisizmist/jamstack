@@ -9,7 +9,7 @@
 export default {
   async asyncData({ params }) {
     const post = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${params.id}`
+      `https://jamstack-backend.herokuapp.com/posts/${params.slug}`
     ).then((res) => res.json())
     return { post }
   },
