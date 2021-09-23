@@ -50,7 +50,7 @@ export default {
   justify-content: center;
   background-color: #272727;
   a {
-    color: #fff;
+    color: #fff !important;
     margin-right: 10px;
     margin-left: 10px;
     text-decoration: none;
